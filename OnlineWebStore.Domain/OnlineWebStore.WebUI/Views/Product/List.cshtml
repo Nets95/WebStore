@@ -1,0 +1,19 @@
+﻿@model OnlineWebStore.WebUI.Models.ProductsListViewModel
+@using OnlineWebStore.WebUI.HtmlHelpers;
+@{
+    ViewBag.Title = "Producs";
+}
+
+
+
+@foreach (var p in Model.Products)
+{
+    @Html.Partial("ProductSummery", p)
+}
+
+
+<div class=" btn-group pull-right">
+
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+
+</div>
